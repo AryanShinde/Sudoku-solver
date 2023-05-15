@@ -72,16 +72,8 @@ export default function SudokuSolver() {
 
   return (
     <Row className="mt-4">
-      <Col sm={8} className="mb-5">
-        <Board
-          startGrid={startGrid}
-          grid={grid}
-          onChange={handleValueChange}
-          disabled={isGridDisabled}
-        />
-      </Col>
-      <Col lg className="mb-5">
-        <Card className="shadow">
+      <Col className="mb-5">
+        <Card className="shadow mb-5">
           <Card.Body>
             <Button
               variant="dark"
@@ -98,7 +90,7 @@ export default function SudokuSolver() {
             <br />
             {isSolving ? (
               <Button
-                className="mt-3"
+                className="mt-3 mr-2"
                 variant="dark"
                 onClick={() => window.location.reload()}
               >
@@ -106,14 +98,14 @@ export default function SudokuSolver() {
               </Button>
             ) : (
               <Button
-                className="mt-3"
+                className="mt-3 mr-2"
                 variant="dark"
                 onClick={handleSolveButtonClicked}
               >
                 Solve
               </Button>
             )}
-            <FormCheck
+            {/* <FormCheck
               className="mt-3"
               type="checkbox"
               label="Show solving process"
@@ -129,7 +121,7 @@ export default function SudokuSolver() {
               </p>
             ) : (
               ""
-            )}
+            )} */}
             <Button
               className="mt-3 mr-1"
               variant="dark"
@@ -148,6 +140,12 @@ export default function SudokuSolver() {
             </Button>
           </Card.Body>
         </Card>
+        <Board
+          startGrid={startGrid}
+          grid={grid}
+          onChange={handleValueChange}
+          disabled={isGridDisabled}
+        />
       </Col>
     </Row>
   );
